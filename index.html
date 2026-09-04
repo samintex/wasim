@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Yarn Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= DASHBOARD ================= -->
+    <section id="dashboardPage" class="page">
+
+        <div class="dashboard-title">
+            Dashboard
+        </div>
+
+        <div class="menu-buttons">
+
+            <button class="menu-btn company-btn"
+                    onclick="showPage('companyPage')">
+                Company Add
+            </button>
+
+            <button class="menu-btn order-btn"
+                    onclick="showPage('orderPage')">
+                Oder Add
+            </button>
+
+            <button class="menu-btn delivery-btn"
+                    onclick="showPage('deliveryPage')">
+                Yarn Delivery
+            </button>
+
+            <button class="menu-btn due-btn"
+                    onclick="showPage('duePage')">
+                Due List
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= COMPANY ADD ================= -->
+    <section id="companyPage" class="page hidden">
+
+        <div class="small-title company-title">
+            Company Add
+        </div>
+
+        <div class="company-form">
+
+            <div class="form-row">
+                <label>Company Name:</label>
+
+                <input type="text"
+                       id="companyName"
+                       autocomplete="off">
+            </div>
+
+            <div class="form-row">
+                <label>Address:</label>
+
+                <input type="text"
+                       id="companyAddress"
+                       autocomplete="off">
+            </div>
+
+            <button class="save-btn"
+                    onclick="saveCompany()">
+                SAVE
+            </button>
+
+        </div>
+
+        <button class="back-btn"
+                onclick="showPage('dashboardPage')">
+            ← Dashboard
+        </button>
+
+    </section>
+
+
+    <!-- ================= ORDER ADD ================= -->
+    <section id="orderPage" class="page hidden">
+
+        <div class="page-title order-title">
+            Oder Add
+        </div>
+
+        <div class="table-wrapper">
+
+            <table class="yarn-table">
+
+                <thead>
+                    <tr>
+
+                        <th>Company Name</th>
+
+                        <th>10 KH</th>
+                        <th>12 KH</th>
+                        <th>16 KH</th>
+                        <th>20 KH</th>
+                        <th>22 KH</th>
+                        <th>24 KH</th>
+                        <th>26 KH</th>
+                        <th>28 KH</th>
+                        <th>30 KH</th>
+                        <th>32 KH</th>
+                        <th>34 KH</th>
+                        <th>36 KH</th>
+                        <th>40 KH</th>
+                        <th>53 KH</th>
+                        <th>60 KH</th>
+                        <th>80 KH</th>
+
+                        <th>20 COM</th>
+                        <th>24 COM</th>
+                        <th>26 COM</th>
+                        <th>28 COM</th>
+                        <th>30 COM</th>
+                        <th>32 COM</th>
+                        <th>34 COM</th>
+                        <th>36 COM</th>
+                        <th>40 COM</th>
+                        <th>53 COM</th>
+                        <th>60 COM</th>
+                        <th>80 COM</th>
+
+                        <th>Total</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            <select id="orderCompany">
+                                <option value="">Select Company</option>
+                            </select>
+                        </td>
+
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+                        <td><input type="number" class="orderQty"></td>
+
+                        <td class="total-cell">
+                            0
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <button class="big-save-btn"
+                onclick="saveOrder()">
+            SAVE
+        </button>
+
+        <button class="back-btn"
+                onclick="showPage('dashboardPage')">
+            ← Dashboard
+        </button>
+
+    </section>
+
+
+    <!-- ================= YARN DELIVERY ================= -->
+    <section id="deliveryPage" class="page hidden">
+
+        <div class="page-title delivery-title">
+            Yarn Delivery
+        </div>
+
+        <div class="table-wrapper">
+
+            <table class="yarn-table">
+
+                <thead>
+                    <tr>
+
+                        <th>Company Name</th>
+
+                        <th>10 KH</th>
+                        <th>12 KH</th>
+                        <th>16 KH</th>
+                        <th>20 KH</th>
+                        <th>22 KH</th>
+                        <th>24 KH</th>
+                        <th>26 KH</th>
+                        <th>28 KH</th>
+                        <th>30 KH</th>
+                        <th>32 KH</th>
+                        <th>34 KH</th>
+                        <th>36 KH</th>
+                        <th>40 KH</th>
+                        <th>53 KH</th>
+                        <th>60 KH</th>
+                        <th>80 KH</th>
+
+                        <th>20 COM</th>
+                        <th>24 COM</th>
+                        <th>26 COM</th>
+                        <th>28 COM</th>
+                        <th>30 COM</th>
+                        <th>32 COM</th>
+                        <th>34 COM</th>
+                        <th>36 COM</th>
+                        <th>40 COM</th>
+                        <th>53 COM</th>
+                        <th>60 COM</th>
+                        <th>80 COM</th>
+
+                        <th>Total</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            <select id="deliveryCompany">
+                                <option value="">Select Company</option>
+                            </select>
+                        </td>
+
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+                        <td><input type="number" class="deliveryQty"></td>
+
+                        <td class="delivery-total-cell">
+                            0
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <button class="big-save-btn"
+                onclick="saveDelivery()">
+            SAVE
+        </button>
+
+        <button class="back-btn"
+                onclick="showPage('dashboardPage')">
+            ← Dashboard
+        </button>
+
+    </section>
+
+
+    <!-- ================= DUE LIST ================= -->
+    <section id="duePage" class="page hidden">
+
+        <div class="page-title due-title">
+            Due List Summery
+        </div>
+
+        <div class="table-wrapper">
+
+            <table class="yarn-table due-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Company Name</th>
+
+                        <th>10 KH</th>
+                        <th>12 KH</th>
+                        <th>16 KH</th>
+                        <th>20 KH</th>
+                        <th>22 KH</th>
+                        <th>24 KH</th>
+                        <th>26 KH</th>
+                        <th>28 KH</th>
+                        <th>30 KH</th>
+                        <th>32 KH</th>
+                        <th>34 KH</th>
+                        <th>36 KH</th>
+                        <th>40 KH</th>
+                        <th>53 KH</th>
+                        <th>60 KH</th>
+                        <th>80 KH</th>
+
+                        <th>20 COM</th>
+                        <th>24 COM</th>
+                        <th>26 COM</th>
+                        <th>28 COM</th>
+                        <th>30 COM</th>
+                        <th>32 COM</th>
+                        <th>34 COM</th>
+                        <th>36 COM</th>
+                        <th>40 COM</th>
+                        <th>53 COM</th>
+                        <th>60 COM</th>
+                        <th>80 COM</th>
+
+                        <th>Total</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="dueTableBody">
+                </tbody>
+
+                <tfoot>
+
+                    <tr>
+
+                        <th>Total</th>
+
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+                        <th>0</th>
+
+                        <th id="grandTotal">
+                            0
+                        </th>
+
+                    </tr>
+
+                </tfoot>
+
+            </table>
+
+        </div>
+
+        <button class="print-btn"
+                onclick="printDueList()">
+            Report Print
+        </button>
+
+        <button class="back-btn"
+                onclick="showPage('dashboardPage')">
+            ← Dashboard
+        </button>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
